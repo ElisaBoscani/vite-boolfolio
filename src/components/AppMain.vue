@@ -7,7 +7,7 @@ export default {
   data() {
     return {
       blog_api: "http://127.0.0.1:8000/api/project",
-      posts: null,
+      projects: null,
       pages: [],
       FontAwesomeIcon,
     };
@@ -17,7 +17,7 @@ export default {
       axios
         .get(this.blog_api)
         .then((response) => {
-          this.posts = response.data.result;
+          this.projects = response.data.result;
         })
         .catch((err) => {
           console.error(err);
@@ -38,7 +38,7 @@ export default {
 </script>
 <template>
   <main class="pt-3">
-    <section v-if="posts">
+    <section v-if="projects">
       <div class="container">
         <div
           class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-6 gap-4 justify-content-center"
@@ -46,34 +46,38 @@ export default {
           <div
             class="card"
             style="width: 16rem;"
-            v-for="post in posts.data"
-            :key="post.id"
+            v-for="project in projects.data"
+            :key="project.id"
           >
             <img
-              :src="getImageUrl(post.cover_image)"
+              :src="getImageUrl(project.cover_image)"
               class="card-img-top pt-3"
               alt="..."
             />
             <div class="card-body d-flex flex-column justify-content-between">
-              <h5 class="card-title">{{ post.title }}</h5>
+              <h5 class="card-title">{{ project.title }}</h5>
               <p class="card-text">
-                {{ post.content }}
+                {{ project.content }}
               </p>
               <div class="d-flex justify-content-evenly">
-                <a :href="post.url_git" class="btn btn-dark"
+                <a :href="project.url_git" class="btn btn-dark"
                   ><font-awesome-icon
                     icon="fa-brands fa-github"
                     size="lg"
                     style="color: #ffffff;"
                   />
                 </a>
-                <a :href="post.url_view" class="btn btn-dark"
+                <a :href="project.url_view" class="btn btn-dark"
                   ><font-awesome-icon
                     icon="fa-regular fa-eye"
                     size="lg"
                     style="color: #ffffff;"
                 /></a>
               </div>
+              <router-link
+                :to="{ name: 'singleproject', params: { slug: project.slug } }"
+                >View Post</router-link
+              >
             </div>
           </div>
         </div>
