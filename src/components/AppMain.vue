@@ -8,7 +8,7 @@ export default {
     return {
       blog_api: "http://127.0.0.1:8000/api/project",
       projects: null,
-      pages: [],
+
       FontAwesomeIcon,
     };
   },

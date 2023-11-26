@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import "../src/scss/app.scss";
+import * as bootstrap from "bootstrap";
 import App from "./App.vue";
 import { router } from "./router.js";
 

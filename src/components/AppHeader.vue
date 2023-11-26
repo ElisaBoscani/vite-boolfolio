@@ -1,18 +1,21 @@
 <script>
+import AppJumbo from "./AppJumbo.vue";
 export default {
   name: "AppHeader",
 
   data() {
     return {};
   },
+  components: {
+    AppJumbo,
+  },
 };
 </script>
 
 <template>
   <header>
-    <nav class="navbar navbar-expand-lg bg-body-secondary">
+    <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -28,26 +31,40 @@ export default {
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <!--  <a class="nav-link" aria-current="page" href="#">Home</a> -->
-              <RouterLink to="/" class="nav-link" aria-current="page"
-                >Home</RouterLink
+              <RouterLink
+                to="/"
+                class="nav-link btn_color fw-medium fs-4"
+                aria-current="page"
               >
+                Home
+              </RouterLink>
             </li>
             <li class="nav-item">
-              <!--  <a class="nav-link" href="#">About</a> -->
-              <RouterLink to="/blog" class="nav-link" aria-current="page"
-                >Blog</RouterLink
+              <RouterLink
+                to="/list"
+                class="nav-link fw-medium fs-4 btn_color"
+                aria-current="page"
               >
+                Projects List
+              </RouterLink>
             </li>
             <li class="nav-item">
-              <RouterLink to="/about" class="nav-link" aria-current="page"
-                >About</RouterLink
+              <RouterLink
+                to="/about"
+                class="nav-link fw-medium fs-4 btn_color"
+                aria-current="page"
               >
+                About
+              </RouterLink>
             </li>
             <li class="nav-item">
-              <RouterLink to="/contacts" class="nav-link" aria-current="page"
-                >Contacts</RouterLink
+              <RouterLink
+                to="/contacts"
+                class="nav-link fw-medium fs-4 btn_color"
+                aria-current="page"
               >
+                Contacts
+              </RouterLink>
             </li>
           </ul>
         </div>
@@ -55,12 +72,13 @@ export default {
           <a
             href="http://127.0.0.1:8000/login"
             class="text-decoration-none text-black"
-            >Log In</a
           >
+            Log In
+          </a>
         </div>
       </div>
     </nav>
-  </header></template
->
+  </header>
+</template>
 
 <style></style>

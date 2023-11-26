@@ -1,19 +1,25 @@
 <script>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import ProjectCard from "../components/ProjectCard.vue";
 import axios from "axios";
+import { store } from "../store.js";
 export default {
   name: "SingleProjectView",
 
   data() {
     return {
+      store,
       blog_api: `http://127.0.0.1:8000/api/project/${this.$route.params.slug}`,
       project: {},
       FontAwesomeIcon,
       loading: true,
     };
   },
+  components: {
+    ProjectCard,
+  },
   methods: {
-    getPosts() {
+    getProjectView() {
       axios
         .get(this.blog_api)
         .then((response) => {
@@ -28,32 +34,23 @@ export default {
           console.log(err.message);
         });
     },
-    getImageUrl(coverImage) {
-      if (coverImage && coverImage.includes("http")) {
-        return coverImage;
-      } else {
-        return "http://127.0.0.1:8000/storage/" + coverImage;
-      }
-    },
   },
   mounted() {
-    this.getPosts();
+    this.getProjectView();
   },
 };
 </script>
 <template>
-  <div class="container">
-    <div v-if="!loading">
-      <img
-        :src="getImageUrl(project.cover_image)"
-        class="card-img-top pt-3"
-        alt="..."
-      />
-      <h5 class="card-title">{{ project.title }}</h5>
-      <!--   <div>{{ project.type.name }}</div> -->
+  <div v-if="!loading">
+    <div class="container">
+      <div
+        class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-6 gap-4 justify-content-center"
+      >
+        <ProjectCard :project="project" :key="project.id"></ProjectCard>
+      </div>
     </div>
-    <div v-else>
-      loading...
-    </div>
+  </div>
+  <div v-else>
+    loading...
   </div>
 </template>
