@@ -1,7 +1,12 @@
 @use "/node_modules/bootstrap/scss/bootstrap.scss";
 
+body {
+  height: 100vh;
+  color: white;
+}
 header,
-main {
+#project,
+#home {
   background: #757f9a; /* fallback for old browsers */
 
   background: linear-gradient(
@@ -31,4 +36,24 @@ main {
   background-position: center;
   background-repeat: no-repeat;
   background-size: initial;
+}
+
+#contact {
+  background-color: #757f9a;
+}
+
+.container_form {
+  padding: 30px;
+  box-shadow: 1px 0px 9px 3px;
+}
+.contact_btn,
+.project_btn {
+  background-color: #d7dde8;
+}
+
+#about {
+  color: black;
+}
+#footer {
+  background-color: #757f9a;
 }

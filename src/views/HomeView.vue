@@ -23,11 +23,9 @@ export default {
 </script>
 <template>
   <AppJumbo></AppJumbo>
-  <main>
-    <!--   <h1 class="text-center">Welcome !!!</h1> -->
-
+  <main id="home">
     <section v-if="store.projects" class="pt-5">
-      <div class="container">
+      <div class="container pb-3">
         <div
           class="card text-bg-dark"
           v-for="project in store.projects"
@@ -73,7 +71,7 @@ export default {
   </main>
 </template>
 <style scoped>
-h1 {
+/* h1 {
   text-transform: uppercase;
   background-image: linear-gradient(
     -225deg,
@@ -91,7 +89,7 @@ h1 {
   -webkit-text-fill-color: transparent;
   animation: textclip 4s linear infinite;
   font-size: 80px;
-}
+} */
 
 @keyframes textclip {
   to {

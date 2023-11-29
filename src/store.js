@@ -7,7 +7,7 @@ export const store = reactive({
   blog_api_last: "http://127.0.0.1:8000/api/project/latest",
   tech_url: "http://127.0.0.1:8000/api/technologes",
   technologies: null,
-
+  loading: true,
   getPage(url) {
     axios
       .get(url)

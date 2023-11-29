@@ -12,7 +12,6 @@ export default {
       blog_api: `http://127.0.0.1:8000/api/project/${this.$route.params.slug}`,
       project: {},
       FontAwesomeIcon,
-      loading: true,
     };
   },
   components: {
@@ -25,7 +24,7 @@ export default {
         .then((response) => {
           if (response.data.success) {
             this.project = response.data.result;
-            this.loading = false;
+            store.loading = false;
           } else {
             this.$router.push({ name: "ErrorPage" });
           }
